@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/1stpage.css">
+<link rel="stylesheet" type="text/css" href="css/page.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 
@@ -83,6 +83,9 @@
           <option value="Laptop">Laptop</option>
           <option value="Sensor">Sensor</option>
           <option value="Gateway">Gateway</option>
+           <option value="BoomBarrier">BoomBarrier</option>
+           <option value="ThermalPrinter">Thermal Printer</option>
+           
         </select>
     </div>
     </div>

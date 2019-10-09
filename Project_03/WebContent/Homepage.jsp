@@ -1,5 +1,5 @@
 <html>
-<link rel="stylesheet" type="text/css" href="css/1stpage.css">
+<link rel="stylesheet" type="text/css" href="css/page.css">
 <head>
 	<title>navigation</title>
 </head>

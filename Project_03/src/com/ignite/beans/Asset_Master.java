@@ -10,19 +10,19 @@ public class Asset_Master {
 	String am_model;
 	String am_snumber;
 	String am_myear;
-	Date am_pdate;
+	String am_pdate;
 	String am_warranty;
-	Date am_from;
-	Date am_to;
+	String am_from;
+	String am_to;
 	String isactive;
 	public Asset_Master() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Asset_Master(Integer am_id, String am_type, String am_make, String am_model, String am_snumber,
-			String am_myear, Date am_pdate, String am_warranty, Date am_from, Date am_to, String isactive) {
+	public Asset_Master( String am_type, String am_make, String am_model, String am_snumber,
+			String am_myear, String am_pdate, String am_warranty, String am_from, String am_to, String isactive) {
 		super();
-		this.am_id = am_id;
+	
 		this.am_type = am_type;
 		this.am_make = am_make;
 		this.am_model = am_model;
@@ -70,10 +70,10 @@ public class Asset_Master {
 	public void setAm_myear(String am_myear) {
 		this.am_myear = am_myear;
 	}
-	public Date getAm_pdate() {
+	public String getAm_pdate() {
 		return am_pdate;
 	}
-	public void setAm_pdate(Date am_pdate) {
+	public void setAm_pdate(String am_pdate) {
 		this.am_pdate = am_pdate;
 	}
 	public String getAm_warranty() {
@@ -82,17 +82,17 @@ public class Asset_Master {
 	public void setAm_warranty(String am_warranty) {
 		this.am_warranty = am_warranty;
 	}
-	public Date getAm_from() {
+	public String getAm_from() {
 		return am_from;
 	}
-	public void setAm_from(Date am_from) {
-		this.am_from = am_from;
+	public void setAm_from(String string) {
+		this.am_from = string;
 	}
-	public Date getAm_to() {
+	public String getAm_to() {
 		return am_to;
 	}
-	public void setAm_to(Date am_to) {
-		this.am_to = am_to;
+	public void setAm_to(String string) {
+		this.am_to = string;
 	}
 	public String getIsactive() {
 		return isactive;

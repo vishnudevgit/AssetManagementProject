@@ -36,7 +36,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
                     <a href="asset.jsp">Asset Details</a>                  
                     <a href="vendor.jsp">Vendor Creation</a>
                     <a href="Purchase.jsp">Purchase Order Creation</a>
-                    <a href="#">Asset Definition</a>
+                    <a href="asset_master.jsp">Asset Definition</a>
                     
 
                 </div>
@@ -69,7 +69,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       <div class="col-75">
       
         <select id="ad_name" name="ad_name">
-        <option selected disabled hidden>select</options>
+        <option selected disabled hidden><%= asset_det.getAd_name() %></options>
           <option value="Laptop">Laptop</option>
           <option value="Mobile Charger">Mobile Charger</option>
           <option value="Printer Charger">Printer Charger</option>
@@ -90,7 +90,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <select id="ad_type" name="ad_type">
-        <option selected disabled hidden>select</options>
+        <option selected disabled hidden value="0"><%= asset_det.getAd_type() %></options>
           <option value="Laptop">Laptop</option>
           <option value="Sensor">Sensor</option>
           <option value="Gateway">Gateway</option>
@@ -103,7 +103,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <select id="ad_class" name="ad_class">
-        <option selected disabled hidden>select</options>
+        <option selected value="0" disabled hidden><%= asset_det.getAd_class()%></options>
           <option value="HardWare">HardWare</option>
           <option value="SoftWare">SoftWare</option>
         </select>
@@ -122,7 +122,7 @@ if(request.getMethod().equalsIgnoreCase("post")){
 	%>
 	<jsp:useBean id="asset_det" class="com.ignite.beans.Asset_det" scope="request"/>
 	<jsp:setProperty property="*" name="asset_det"/>
-	<jsp:forward page="updateasset"/>
+	<jsp:forward page="updateAsset"/>
 	<%
 }
 }

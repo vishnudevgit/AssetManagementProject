@@ -16,26 +16,17 @@
 <h2>Welcome to Assset Management System </h2>
 
 <div class="container">
-  <form action="login" method="post">
     <div class="row">
      
-     <!--  <div class="vl"> -->
-      <!--  <span class="vl-innertext"> </span> -->
-     <!-- </div> -->
-
-    <!--  <div class="col"> -->
-    <!--    <div class="imgcontainer">
-     <!--  <img src="images/index.jpg" alt="Avatar" class="avatar" > -->
-   <!--  </div> -->
-      </div> 
+  
 
       <div class="col">
       
-		<form >
+		 <form action="login" method="post">
         <input type="text" name="username" placeholder="Enter Username" required>
         <input type="password" name="password" placeholder="Enter Password" required>
         <input type="submit" value="Login">
-        
+          </form>
         <%
 		if(request.getParameter("error")!=null){
 			%>
@@ -44,10 +35,8 @@
 		}
 	 %>
         
-        <form action="signin" method="post">
-        <input type="submit" value="Sign up">
-        <br>
-        </form>
+
+      
      
         
         
@@ -57,8 +46,6 @@
       </div>
       
     </div>
-  </form>
-</div>
 
 </body>
 </html>

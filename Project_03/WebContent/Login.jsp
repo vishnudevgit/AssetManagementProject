@@ -44,7 +44,7 @@
 		}
 	 %>
         
-        <form action="signin" method="post">
+     
         <input type="submit" value="Sign up">
         <br>
         </form>

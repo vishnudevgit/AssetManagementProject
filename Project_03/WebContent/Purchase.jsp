@@ -36,7 +36,7 @@
                     <a href="asset.jsp">Asset Details</a>                  
                     <a href="vendor.jsp">Vendor Creation</a>
                     <a href="Purchase.jsp">Purchase Order Creation</a>
-                    <a href="#">Asset Definition</a>
+                    <a href="asset_master.jsp">Asset Definition</a>
                     
 
                 </div>
@@ -181,7 +181,7 @@ for(Purchase_Det purchase_det : purchase_dets){
 <td><%= purchase_det.getPd_order() %></td>
 <td><%= purchase_det.getPd_type() %></td>
 <td><%= purchase_det.getPd_qty() %></td>
-<td><%= purchase_det.getPd_vendor()%></td>
+<td><%= purchase_det.getPd_vendor() %></td>
 <td><%= purchase_det.getPd_date() %></td>
 <td><%= purchase_det.getPd_ddate() %></td>
 <td><%= purchase_det.getPd_status() %></td>

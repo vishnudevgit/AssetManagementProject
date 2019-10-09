@@ -81,13 +81,10 @@ public class Purchase_DetJdbcDao extends Dao implements Purchase_DetDao {
 				purchase_det.setPd_type(rs.getString("pd_type"));
 				purchase_det.setPd_qty(rs.getInt("pd_qty"));
 				purchase_det.setPd_vendor(rs.getString("pd_vendor"));
+			
 				purchase_det.setPd_status(rs.getString("pd_status"));
 				
-				purchase_det.setPd_date(rs.getString("pd_date"));
-				purchase_det.setPd_ddate(rs.getString("pd_ddate"));
 				
-				
-				purchase_det.setPd_status(rs.getString("pd_status"));
 			}
 			rs1 = stmt.executeQuery("SELECT pd_date,pd_ddate FROM purchase_det where isactive='Y'");
 			String str1=df.format("pd_date");
@@ -136,8 +133,9 @@ public class Purchase_DetJdbcDao extends Dao implements Purchase_DetDao {
 		pstmt.setInt(3, pd.getPd_qty());
 		pstmt.setString(4, pd.getPd_vendor());
 		pstmt.setDate(5,Date.valueOf(pd.getPd_date()));
-		pstmt.setDate(5,Date.valueOf(pd.getPd_ddate()));
+		pstmt.setDate(6,Date.valueOf(pd.getPd_ddate()));
 		pstmt.setString(7, pd.getPd_status());
+		pstmt.setInt(8,pd.getPd_id());
 
 		if(1==pstmt.executeUpdate()){
 			res = true;

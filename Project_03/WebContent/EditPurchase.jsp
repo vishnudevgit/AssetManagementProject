@@ -35,7 +35,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
                     <a href="asset.jsp">Asset Details</a>                  
                     <a href="vendor.jsp">Vendor Creation</a>
                     <a href="Purchase.jsp">Purchase Order Creation</a>
-                    <a href="#">Asset Definition</a>
+                    <a href="asset_master.jsp">Asset Definition</a>
                     
 
                 </div>
@@ -59,7 +59,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <div class="col-65">
-       <input type="text" name="pd_order" placeholder="Unknown type" autofocus="autofocus" value required><br>
+       <input type="text" name="pd_order" placeholder="<%= purchase_det.getPd_order()%>" autofocus="autofocus" value required><br>
         </div>
         </div>
     </div>
@@ -71,7 +71,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <select id="pd_type" name="pd_type">
-        <option selected disabled hidden>select</options>
+        <option selected disabled hidden value="0"><%= purchase_det.getPd_type()%></options>
           <option value="Laptop">Laptop</option>
           <option value="Mobile Charger">Mobile Charger</option>
           <option value="Printer Charger">Printer Charger</option>
@@ -92,7 +92,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <div class="col-65">
-       <input type="text" name="pd_order" placeholder="Unknown type" autofocus="autofocus" value required><br>
+       <input type="text" name="pd_qty" placeholder="<%= purchase_det.getPd_qty()%>" autofocus="autofocus" value required><br>
         </div>
         </div>
     </div>
@@ -104,7 +104,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       <div class="col-75">
       
         <select id="pd_vendor" name="pd_vendor">
-        <option selected disabled hidden>select</options>
+        <option selected disabled hidden value="0"><%= purchase_det.getPd_vendor()%></options>
           <option value="Samsung">Samsung</option>
           <option value="MI">MI</option>
           <option value="Vivo">Vivo</option>
@@ -124,7 +124,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <div class="col-65">
-       <input type="date" name="pd_date" placeholder="mm/dd/yyyy" required><br><br>
+       <input type="date" name="pd_date" placeholder="mm/dd/yy" required><br><br>
 
         </div>
         </div>
@@ -136,7 +136,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <div class="col-65">
-       <input type="date" name="pd_ddate" placeholder="mm/dd/yyyy" autofocus="autofocus"required><br><br>
+       <input type="date" name="pd_ddate" placeholder="mm/dd/yy" autofocus="autofocus"required><br><br>
         </div>
         </div>
     </div>
@@ -148,7 +148,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       <div class="col-75">
       
         <select id="pd_status" name="pd_status">
-        <option selected disabled hidden>select</options>
+        <option selected disabled hidden selected="0"><%= purchase_det.getPd_status()%></options>
           <option value="PO - Raised with Supplier">PO - Raised with Supplier</option>
           <option value="Awaiting Delivery by Supplier">Awaiting Delivery by Supplier</option>
           <option value="Consignment Received">Consignment Received</option>
@@ -162,7 +162,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       
           <div class="col" >
-    		<input type="submit" value="Submit">
+    		<input type="submit" value="Update">
     		<input type="reset" value="Cancel">
  
     </div>

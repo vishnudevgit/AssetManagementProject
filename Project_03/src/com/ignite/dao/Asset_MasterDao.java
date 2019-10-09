@@ -9,8 +9,8 @@ import com.ignite.beans.Asset_Master;
 
 public interface Asset_MasterDao {
 	boolean insert(Asset_Master am) throws SQLException;
-    boolean update(Asset_Master am) throws SQLException;
-    boolean delete(Asset_Master am) throws SQLException;
+    //boolean update(Asset_Master am) throws SQLException;
+    boolean delete(int am_id) throws SQLException;
     
     Asset_Master find(int am_id) throws FileNotFoundException, ClassNotFoundException, IOException, SQLException;
     List<Asset_Master> findAll() throws FileNotFoundException, ClassNotFoundException, IOException, SQLException;

@@ -36,7 +36,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
                     <a href="asset.jsp">Asset Details</a>                  
                     <a href="vendor.jsp">Vendor Creation</a>
                     <a href="Purchase.jsp">Purchase Order Creation</a>
-                    <a href="#">Asset Definition</a>
+                    <a href="asset_master.jsp">Asset Definition</a>
                     
 
                 </div>
@@ -69,7 +69,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       <div class="col-75">
       
         <select id="vd_name" name="vd_name">
-        <option selected disabled hidden>select</options>
+        <option selected disabled value="0" hidden><%= vendor_det.getVd_name()%></options>
         <option value="Samsung">Samsung</option>
 	    <option value="MI">MI</option>
 	    <option value=" Vivo"> Vivo</option>
@@ -88,7 +88,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <select id="vd_type" name="vd_type">
-        <option selected disabled hidden>select</options>
+        <option selected disabled value="0" hidden><%= vendor_det.getVd_type()%></options>
            <option value="Supplier">Supplier</option>
         </select>
     </div>
@@ -100,7 +100,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
       <select id="vd_atype" name="vd_atype">
-        <option selected disabled hidden>select</options>
+        <option selected disabled value="0" hidden><%= vendor_det.getVd_atype()%></options>
 	    <option value="Mobile">Mobile</option>
 	    <option value="Thermal Printer">Thermal Printer</option>
 	    <option value="Sensor"> Sensor</option>
@@ -140,7 +140,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       </div>
       <div class="col-75">
      
-        <input type="text" name="vd_addr" placeholder="Enter Address" autofocus="autofocus" value required><br>
+        <input type="text" name="vd_addr"  autofocus="autofocus" placeholder="<%= vendor_det.getVd_addr()%>" value required><br>
         
         
     </div>

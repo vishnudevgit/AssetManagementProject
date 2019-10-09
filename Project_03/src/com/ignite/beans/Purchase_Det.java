@@ -17,7 +17,7 @@ public class Purchase_Det {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Purchase_Det(Integer pd_id, String pd_order, String pd_type, Integer pd_qty, String pd_vendor, String pd_date,
+	public Purchase_Det( String pd_order, String pd_type, Integer pd_qty, String pd_vendor, String pd_date,
 			String pd_ddate, String pd_status, String isactive) {
 		super();
 		this.pd_id = pd_id;

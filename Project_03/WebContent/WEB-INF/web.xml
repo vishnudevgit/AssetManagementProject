@@ -31,6 +31,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>DeleteAssetServlet</display-name>
+    <servlet-name>DeleteAssetServlet</servlet-name>
+    <servlet-class>com.ignite.servlets.DeleteAssetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAssetServlet</servlet-name>
+    <url-pattern>/deleteasset</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>AssetNameServlet</display-name>
     <servlet-name>AssetNameServlet</servlet-name>
     <servlet-class>com.ignite.servlets.AssetNameServlet</servlet-class>
@@ -71,6 +81,36 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>UpdateAssetServlet</display-name>
+    <servlet-name>UpdateAssetServlet</servlet-name>
+    <servlet-class>com.ignite.servlets.UpdateAssetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateAssetServlet</servlet-name>
+    <url-pattern>/updateAsset</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdatePurchaseServlet</display-name>
+    <servlet-name>UpdatePurchaseServlet</servlet-name>
+    <servlet-class>com.ignite.servlets.UpdatePurchaseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatePurchaseServlet</servlet-name>
+    <url-pattern>/updatepurchase</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeletePurchaseServlet</display-name>
+    <servlet-name>DeletePurchaseServlet</servlet-name>
+    <servlet-class>com.ignite.servlets.DeletePurchaseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeletePurchaseServlet</servlet-name>
+    <url-pattern>/deletepurchase</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>Vendor_detServlet</display-name>
     <servlet-name>Vendor_detServlet</servlet-name>
     <servlet-class>com.ignite.servlets.Vendor_detServlet</servlet-class>
@@ -78,5 +118,15 @@
   <servlet-mapping>
     <servlet-name>Vendor_detServlet</servlet-name>
     <url-pattern>/vendor_det</url-pattern>
+  </servlet-mapping>
+  <servlet>    
+    <description></description>
+    <display-name>AddAssetMasterServlet</display-name>
+    <servlet-name>AddAssetMasterServlet</servlet-name>
+    <servlet-class>com.ignite.servlets.AddAssetMasterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAssetMasterServlet</servlet-name>
+    <url-pattern>/addasset</url-pattern>
   </servlet-mapping>
 </web-app>

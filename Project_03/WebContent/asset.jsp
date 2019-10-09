@@ -36,7 +36,7 @@
                     <a href="asset.jsp">Asset Details</a>                  
                     <a href="vendor.jsp">Vendor Creation</a>
                     <a href="Purchase.jsp">Purchase Order Creation</a>
-                    <a href="#">Asset Definition</a>
+                    <a href="asset_master.jsp">Asset Definition</a>
 
                 </div>
             </li>

@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 			}
 			else{
 				String err="Invalid Username or Password";
-				response.sendRedirect("Login.jsp?error="+err);
+				response.sendRedirect("index.jsp?error="+err);
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

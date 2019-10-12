@@ -16,6 +16,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Asset_master</title>
 </head>
+
 <body>
 <nav>
         <ul>
@@ -38,6 +39,7 @@
             </li>
             
             <li class="dropdown" style="margin-left: 5%;">
+            <!-- calling the user -->
                 <a href="#" class="dropbuton">Welcome   <%= session.getAttribute("username") %></a>
             </li>
             <li class="dropdown" style="margin-left: 40%;">

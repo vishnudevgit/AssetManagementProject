@@ -63,12 +63,12 @@
           <option value="Mobile Charger">Mobile Charger</option>
           <option value="Printer Charger">Printer Charger</option>
           <option value="Geo Magnetic Sensor – Ground">Geo Magnetic Sensor – Ground</option>
-          <option value="LoRaGetway– Tata">LoRaGetway– Tata</option>
+          <option value="LoRaGetway Tata">LoRaGetway Tata</option>
           <option value="Mobile Phone">Mobile Phone</option>
           <option value="Laser Printer – Colour">Laser Printer – Colour</option>
-          <option value="Desktop">Laptop</option>
-          <option value="Thermal Printer">Laptop</option>
-          <option value="Lora Getaway - ICFOSS">Laptop</option>
+          <option value="Desktop">Desktop</option>
+          <option value="Thermal Printer">Thermal Printer</option>
+          <option value="Lora Getaway - ICFOSS">Lora Getaway - ICFOSS</option>
         </select>
       </div>
       
@@ -129,8 +129,8 @@ for(Asset_det asset_det : asset_dets){
 <td><%= asset_det.getAd_type() %></td>
 <td><%= asset_det.getAd_class() %></td>
 <td>
-					<a href="EditAsset.jsp?ad_id=<%=asset_det.getAd_id()%>">Edit</a>|
-					<a href="deleteasset?ad_id=<%=asset_det.getAd_id()%>">Delete</a>
+	<a href="EditAsset.jsp?ad_id=<%=asset_det.getAd_id()%>">Edit</a>|
+	<a href="deleteasset?ad_id=<%=asset_det.getAd_id()%>">Delete</a>
 </td>
 </tr>
 <%

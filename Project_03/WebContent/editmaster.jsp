@@ -3,18 +3,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList"%>
-<%
-	if (session.getAttribute("username") != null) {
-		ArrayList<Asset_Master> asset_masters = (ArrayList)new Asset_MasterJdbcDao().findAll();
-		if (request.getMethod().equalsIgnoreCase("get")) {
+<%  
+if(session.getAttribute("username")!=null){
+if(request.getMethod().equalsIgnoreCase("get")){
+	int am_id = Integer.parseInt(request.getParameter("am_id"));
+	Asset_Master asset_master = new Asset_MasterJdbcDao().find(am_id);
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/page.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Asset_master</title>
+<title>Edit Master Details</title>
+
 </head>
 <body>
 <nav>
@@ -26,7 +29,7 @@
                     <a href="###"></a>
                 </div>
             </li>
-          
+            
             <li class="dropdown">
                 <a href="#" class="dropbuton">Asset Management</a>
                 <div class="ddc">
@@ -34,19 +37,19 @@
                     <a href="vendor.jsp">Vendor Creation</a>
                     <a href="Purchase.jsp">Purchase Order Creation</a>
                     <a href="asset_master.jsp">Asset Definition</a>
+                    
+
                 </div>
             </li>
-            
-            <li class="dropdown" style="margin-left: 5%;">
-                <a href="#" class="dropbuton">Welcome   <%= session.getAttribute("username") %></a>
-            </li>
-            <li class="dropdown" style="margin-left: 40%;">
+           
+            <li class="logout">
                 <a href="logout" class="dropbuton">Logout</a>
             </li>
         </ul>
     </nav>
-    <div class="container" style="margin-top: 10px;">
-  <form method="POST">
+    <div class="container" style="margin-top: 0px;">
+	
+	<form method="POST">
   
     <div class="row">
       <div class="col-25">
@@ -54,7 +57,7 @@
       </div>
       <div class="col-75">
       	<Select name="am_type" size="1" id="am_type">
-    <option selected value="0" disabled="disabled">Select a Asset Type</option>
+    <option selected value="0" hidden disabled="disabled"><%= asset_master.getAm_type() %></option>
     <option value="Mobile">Mobile</option>
     <option value="Thermal Printer">Thermal Printer</option>
     <option value="Sensor"> Sensor</option>
@@ -72,7 +75,7 @@
       <div class="col-75">
       
         <Select name="am_make" size="1" id="am_make">
-    <option selected value="0" disabled="disabled">Select a  Maker</option>
+    <option selected value="0" hidden disabled="disabled"><%= asset_master.getAm_make() %></option>
     <option value="Samsung">Samsung</option>
     <option value="MI">MI</option>
     <option value=" Vivo"> Vivo</option>
@@ -92,7 +95,7 @@
       <div class="col-75">
     
       <select id="am_model" name="am_model">
-        <option selected disabled hidden>select</options>
+        <option selected disabled value="0" hidden ><%= asset_master.getAm_model()%></option>
           <option value="Laptop">Laptop</option>
           <option value="Mobile Charger">Mobile Charger</option>
           <option value="Printer Charger">Printer Charger</option>
@@ -114,7 +117,7 @@
       </div>
       <div class="col-75">
     
-       <input type="text" name="am_snumber" placeholder="Enter Serialno" id="am_snumber" autofocus="autofocus" value required><br>
+       <input type="text" name="am_snumber" placeholder="<%= asset_master.getAm_snumber()%>" id="am_snumber" autofocus="autofocus" value required><br>
         
         </div>
     </div>
@@ -126,7 +129,7 @@
       </div>
       <div class="col-75">
     
-       <input type="text" name="am_myear" id="am_myear" placeholder="Enter Year of model" autofocus="autofocus" value required><br>
+       <input type="text" name="am_myear" id="am_myear" placeholder="<%= asset_master.getAm_myear()%>" autofocus="autofocus" value required><br>
         
         </div>
     </div>
@@ -137,7 +140,7 @@
       </div>
       <div class="col-75">
       
-       <input type="date" name="am_pdate" id="am_pdate" placeholder="mm/dd/yyyy" required><br><br>
+       <input type="date" name="am_pdate" id="am_pdate" placeholder="<%= asset_master.getAm_pdate()%>" required><br><br>
         
         </div>
     </div>
@@ -148,7 +151,7 @@
       </div>
       <div class="col-75">
     
-       <input type="text" name="am_warranty" id="am_warranty" placeholder="Enter no of yearsof warranty" autofocus="autofocus" value required><br>
+       <input type="text" name="am_warranty" id="am_warranty" placeholder="<%= asset_master.getAm_warranty()%>" autofocus="autofocus" value required><br>
         
         </div>
     </div>
@@ -176,7 +179,7 @@
        <input type="date" name="am_to" placeholder="mm/dd/yyyy" required><br><br>
         
        <div class="col" style="width: 200%; margin-top: 35px;margin-left:500; height: 10px; ">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Update">
  	</div>
     
         </div>
@@ -186,71 +189,22 @@
         
     </div>
     </form>
-		</div>
-		
-		   
-		
-		
-		
-<div class="container" style="margin-top: 5px" style="margin-left:5px" style="margin-right:5px">
-<div align="center">
-	<h2>List of Assets</h2>
-	<table border="1" cellpadding="1" cellspacing="0" align="center">
-		<tr>
-			<th>id</th>
-			<th>Type</th>
-			<th>Maker</th>
-			<th>Model</th>
-			<th>Slno</th>
-			<th>Year of manufacture</th>
-			<th>PurchaseDate</th>
-			<th>Warranty Years</th>
-			<th>Warranty From</th>
-			<th>Warranty To</th>
-			<th>Operation</th>
-		</tr>
-		<%
-	for(Asset_Master asset_master : asset_masters){
-	%>
 	
-	<tr>
-	<td><%= asset_master.getAm_id() %></td>
-	<td><%= asset_master.getAm_type() %></td>
-	<td><%= asset_master.getAm_make() %></td>
-	<td><%= asset_master.getAm_model() %></td>
-	<td><%= asset_master.getAm_snumber() %></td>
-	<td><%= asset_master.getAm_myear() %></td>
-	<td><%= asset_master.getAm_pdate() %></td>
-	<td><%= asset_master.getAm_warranty() %></td>
-	<td><%= asset_master.getAm_from() %></td>
-	<td><%= asset_master.getAm_to() %></td>
-	<td>
-	<a href="editmaster.jsp?am_id=<%=asset_master.getAm_id()%>">Edit</a> |
-	<a href="deletemaster?am_id=<%=asset_master.getAm_id()%>">Delete</a>
-    </td>
-	</tr>
-	<%
-	}
-	%>
-	</table>
 </div>
-</div>
-
-
 </body>
 </html>
 <%
-		} // end of GET
-	if (request.getMethod().equalsIgnoreCase("POST")) {  //POST
-		%>
-		<jsp:useBean id="asset_master" class="com.ignite.beans.Asset_Master" scope="request"/>
-		<jsp:setProperty property="*" name="asset_master"/>
-		<jsp:forward page="asset_maste"/>
-		
-		<%
-	}
-	}
-	else { // session not found
-		response.sendRedirect("Login.jsp");
-	}
+}
+if(request.getMethod().equalsIgnoreCase("post")){
+	
 	%>
+	<jsp:useBean id="asset_master" class="com.ignite.beans.Asset_Master" scope="request"/>
+	<jsp:setProperty property="*" name="asset_master"/>
+	<jsp:forward page="updatemaster"/>
+	<%
+}
+}
+else{
+	response.sendRedirect("Login.jsp");
+}
+%>

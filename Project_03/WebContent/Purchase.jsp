@@ -161,7 +161,7 @@
 	<h2>List of Purchase</h2>
 <table border="1" cellpadding="5" cellspacing="0" align="center">
 			<tr>
-			<th> ID </th>
+			
 			<th>Purchase Order</th>
 			<th>Purchase Type</th>
 			<th>Purchase Quantity</th>
@@ -177,7 +177,7 @@ for(Purchase_Det purchase_det : purchase_dets){
 %>
 
 <tr>
-<td><%= purchase_det.getPd_id() %></td>
+
 <td><%= purchase_det.getPd_order() %></td>
 <td><%= purchase_det.getPd_type() %></td>
 <td><%= purchase_det.getPd_qty() %></td>

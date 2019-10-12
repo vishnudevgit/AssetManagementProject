@@ -50,7 +50,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
 
 <div class="container" style="margin-top: 0px;">
   <form method="POST">
-  ID : <input type="text" name="ad_id" value="<%= purchase_det.getPd_id()%>" readonly="readonly"><br><br>
+  
     <h2 align ="center">Edit Purchase Details </h2>
   
     <div class="row">

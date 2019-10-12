@@ -23,6 +23,8 @@ import com.ignite.dao.Purchase_DetDao;
 
 public class Purchase_DetJdbcDao extends Dao implements Purchase_DetDao {
 
+	
+
 	public Purchase_DetJdbcDao() throws FileNotFoundException, IOException, ClassNotFoundException, SQLException {
 		super();
 		// TODO Auto-generated constructor stub
@@ -66,13 +68,13 @@ public class Purchase_DetJdbcDao extends Dao implements Purchase_DetDao {
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		ResultSet rs1 = null;
+		
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		try{
 			con = getConnection();
 			con.commit();
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("SELECT pd_id,pd_order,pd_type,pd_qty,pd_vendor,pd_status,isactive FROM purchase_det WHERE pd_id = "+pd_id);
+			rs = stmt.executeQuery("SELECT * FROM purchase_det WHERE pd_id = "+pd_id);
 			if(rs.next()){
 				
 				purchase_det = new Purchase_Det();
@@ -83,17 +85,15 @@ public class Purchase_DetJdbcDao extends Dao implements Purchase_DetDao {
 				purchase_det.setPd_vendor(rs.getString("pd_vendor"));
 			
 				purchase_det.setPd_status(rs.getString("pd_status"));
+				java.util.Date pdDate = rs.getTimestamp("pd_date");
+				java.util.Date pdDdate = rs.getTimestamp("pd_ddate");
+				
+				purchase_det.setPd_date(df.format(pdDate));
+				purchase_det.setPd_ddate(df.format(pdDdate));
 				
 				
 			}
-			rs1 = stmt.executeQuery("SELECT pd_date,pd_ddate FROM purchase_det where isactive='Y'");
-			String str1=df.format("pd_date");
-			String str2=df.format("pd_ddate");
-			if(rs.next()){
-				
-				purchase_det.setPd_date(rs1.getString(str1));
-				purchase_det.setPd_ddate(rs1.getString(str2));
-			}
+			
 		}
 		catch(IllegalArgumentException e){
 			e.printStackTrace();
@@ -156,7 +156,7 @@ public class Purchase_DetJdbcDao extends Dao implements Purchase_DetDao {
 			con = getConnection();
 			con.commit();
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("SELECT pd_id,pd_order,pd_type,pd_qty,pd_vendor,pd_status,isactive FROM purchase_det where isactive='Y'");
+			rs = stmt.executeQuery("SELECT * FROM purchase_det where isactive='Y'");
 			while(rs.next()){
 				Purchase_Det purchase_det = new Purchase_Det();
 				purchase_det.setPd_id(rs.getInt("pd_id"));
@@ -165,21 +165,17 @@ public class Purchase_DetJdbcDao extends Dao implements Purchase_DetDao {
 				purchase_det.setPd_qty(rs.getInt("pd_qty"));
 				purchase_det.setPd_vendor(rs.getString("pd_vendor"));
 				
+				java.util.Date pdDate = rs.getTimestamp("pd_date");
+				java.util.Date pdDdate = rs.getTimestamp("pd_ddate");
+				
+				purchase_det.setPd_date(df.format(pdDate));
+				purchase_det.setPd_ddate(df.format(pdDdate));
+				
 				purchase_det.setPd_status(rs.getString("pd_status"));
 				
 				purchase_dets.add(purchase_det);
 			}
 			
-			rs1 = stmt.executeQuery("SELECT pd_date,pd_ddate FROM purchase_det where isactive='Y'");
-			String str1=df.format("pd_date");
-			String str2=df.format("pd_ddate");
-			while(rs.next()){
-				Purchase_Det purchase_det = new Purchase_Det();
-				purchase_det.setPd_date(rs1.getString(str1));
-				purchase_det.setPd_ddate(rs1.getString(str2));
-					
-				purchase_dets.add(purchase_det);
-			}
 		}
 		catch(IllegalArgumentException e){
 			e.printStackTrace();

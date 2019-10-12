@@ -119,14 +119,6 @@
     <servlet-name>Vendor_detServlet</servlet-name>
     <url-pattern>/vendor_det</url-pattern>
   </servlet-mapping>
-  <servlet>    
-    <description></description>
-    <display-name>AddAssetMasterServlet</display-name>
-    <servlet-name>AddAssetMasterServlet</servlet-name>
-    <servlet-class>com.ignite.servlets.AddAssetMasterServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddAssetMasterServlet</servlet-name>
-    <url-pattern>/addasset</url-pattern>
-  </servlet-mapping>
+ 
+ 
 </web-app>

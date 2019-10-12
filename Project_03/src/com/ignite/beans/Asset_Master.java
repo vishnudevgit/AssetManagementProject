@@ -11,7 +11,7 @@ public class Asset_Master {
 	String am_snumber;
 	String am_myear;
 	String am_pdate;
-	String am_warranty;
+	int am_warranty;
 	String am_from;
 	String am_to;
 	String isactive;
@@ -20,7 +20,7 @@ public class Asset_Master {
 		// TODO Auto-generated constructor stub
 	}
 	public Asset_Master( String am_type, String am_make, String am_model, String am_snumber,
-			String am_myear, String am_pdate, String am_warranty, String am_from, String am_to, String isactive) {
+			String am_myear, String am_pdate, int am_warranty, String am_from, String am_to, String isactive) {
 		super();
 	
 		this.am_type = am_type;
@@ -76,11 +76,11 @@ public class Asset_Master {
 	public void setAm_pdate(String am_pdate) {
 		this.am_pdate = am_pdate;
 	}
-	public String getAm_warranty() {
+	public int getAm_warranty() {
 		return am_warranty;
 	}
-	public void setAm_warranty(String am_warranty) {
-		this.am_warranty = am_warranty;
+	public void setAm_warranty(int i) {
+		this.am_warranty = i;
 	}
 	public String getAm_from() {
 		return am_from;

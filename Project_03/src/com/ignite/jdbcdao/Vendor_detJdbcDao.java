@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -83,12 +84,11 @@ public class Vendor_detJdbcDao extends Dao implements Vendor_DetDao {
 		Statement stmt = null;
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		ResultSet rs = null;
-		ResultSet rs1 = null;
 		try{
 			con = getConnection();
 			con.commit();
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("SELECT vd_id,vd_name,vd_type,vd_atype,vd_addr FROM vendor_det WHERE vd_id = "+vd_id);
+			rs = stmt.executeQuery("SELECT * FROM vendor_det WHERE vd_id = "+vd_id);
 			if(rs.next()){
 				vendor_det = new Vendor_Det();
 				vendor_det.setVd_id(rs.getInt("vd_id"));
@@ -97,16 +97,15 @@ public class Vendor_detJdbcDao extends Dao implements Vendor_DetDao {
 				vendor_det.setVd_atype(rs.getString("vd_atype"));
 				
 				vendor_det.setVd_addr(rs.getString("vd_addr"));
+				java.util.Date vdFrom = rs.getTimestamp("vd_from");
+				java.util.Date vdTo = rs.getTimestamp("vd_to");
+				
+				vendor_det.setVd_from(df.format(vdFrom));
+				vendor_det.setVd_to(df.format(vdTo));
 				
 				
 			}
-			rs1 = stmt.executeQuery("SELECT vd_from,vd_to FROM vendor_det where isactive='Y'");
-			String str1=df.format("vd_from");
-			String str2=df.format("vd_to");
-			if(rs1.next()){
-				vendor_det.setVd_from(rs1.getString(str1));
-				vendor_det.setVd_to(rs1.getString(str2));
-			}
+			
 		}
 		catch(IllegalArgumentException e){
 			e.printStackTrace();
@@ -148,7 +147,7 @@ public class Vendor_detJdbcDao extends Dao implements Vendor_DetDao {
 			con = getConnection();
 			con.commit();
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("SELECT vd_id,vd_name,vd_type,vd_atype,vd_addr FROM vendor_det where isactive='Y'");
+			rs = stmt.executeQuery("SELECT * FROM vendor_det where isactive='Y'");
 			
 			while(rs.next()){
 				Vendor_Det vendor_det = new Vendor_Det();
@@ -158,17 +157,16 @@ public class Vendor_detJdbcDao extends Dao implements Vendor_DetDao {
 				vendor_det.setVd_atype(rs.getString("vd_atype"));
 				vendor_det.setVd_addr(rs.getString("vd_addr"));
 				
+				java.util.Date vdFrom = rs.getTimestamp("vd_from");
+				java.util.Date vdTo = rs.getTimestamp("vd_to");
+				
+				vendor_det.setVd_from(df.format(vdFrom));
+				vendor_det.setVd_to(df.format(vdTo));
+				
+				
 				vendor_dets.add(vendor_det);
 			}
-			rs1 = stmt.executeQuery("SELECT vd_from,vd_to FROM vendor_det where isactive='Y'");
-			String str1=df.format("vd_from");
-			String str2=df.format("vd_to");
-			while(rs1.next()){
-				Vendor_Det vendor_det= new Vendor_Det();
-				vendor_det.setVd_from(rs1.getString(str1));
-				vendor_det.setVd_to(rs1.getString(str2));	
-				vendor_dets.add(vendor_det);
-			}
+			
 		}
 		catch(IllegalArgumentException e){
 			e.printStackTrace();

@@ -2,7 +2,6 @@ package com.ignite.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,21 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ignite.beans.Asset_Master;
-import com.ignite.beans.Asset_det;
+import com.ignite.beans.Vendor_Det;
 import com.ignite.jdbcdao.Asset_MasterJdbcDao;
-import com.ignite.jdbcdao.Asset_detJdbcDao;
+import com.ignite.jdbcdao.Vendor_detJdbcDao;
 
 /**
- * Servlet implementation class AddAssetMasterServlet
+ * Servlet implementation class UpdateMasterServlet
  */
-@WebServlet("/asset_maste")
-public class AddAssetMasterServlet extends HttpServlet {
+@WebServlet("/updatemaster")
+public class UpdateMasterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddAssetMasterServlet() {
+    public UpdateMasterServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,11 +44,11 @@ public class AddAssetMasterServlet extends HttpServlet {
 		try {
 			Asset_MasterJdbcDao masterDao = new Asset_MasterJdbcDao();
 			Asset_Master asset_master = (Asset_Master)request.getAttribute("asset_master");
-			if(masterDao.insert(asset_master)){
+			if(masterDao.update(asset_master)){
 				masterDao.save();
 			}
 			else{
-				masterDao.undo();     
+				masterDao.undo();
 			}
 			RequestDispatcher rd = request.getRequestDispatcher("Homepage.jsp");
 			rd.forward(request, response);

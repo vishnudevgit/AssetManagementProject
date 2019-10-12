@@ -54,7 +54,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
         <label for="country">ID </label>
       </div>
       <div class="col-75">
-      <div class="col-65" style="width: 1%">
+      <div class="col-65" style="width: 3%">
        <input type="text" name="vd_id" value="<%= vendor_det.getVd_id()%>" readonly="readonly">
         </div>
         </div>
@@ -69,7 +69,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
       <div class="col-75">
       
         <select id="vd_name" name="vd_name">
-        <option selected disabled value="0" hidden><%= vendor_det.getVd_name()%></options>
+        <option selected disabled value="0" hidden><%= vendor_det.getVd_name()%></option>
         <option value="Samsung">Samsung</option>
 	    <option value="MI">MI</option>
 	    <option value=" Vivo"> Vivo</option>

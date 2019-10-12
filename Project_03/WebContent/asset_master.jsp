@@ -38,32 +38,32 @@
                 </div>
             </li>
             
-            <li class="dropdown" style="margin-left: 5%;">
-            <!-- calling the user -->
-                <a href="#" class="dropbuton">Welcome   <%= session.getAttribute("username") %></a>
-            </li>
-            <li class="dropdown" style="margin-left: 40%;">
-                <a href="logout" class="dropbuton">Logout</a>
-            </li>
+	            <li class="dropdown" style="margin-left: 5%;">
+	            <!-- calling the user -->
+	                <a href="#" class="dropbuton">Welcome   <%= session.getAttribute("username") %></a>
+	            </li>
+	            <li class="dropdown" style="margin-left: 40%;">
+	                <a href="logout" class="dropbuton">Logout</a>
+	            </li>
         </ul>
     </nav>
+  
     <div class="container" style="margin-top: 10px;">
   <form method="POST">
-  
-    <div class="row">
+  	<div class="row">
       <div class="col-25">
         <label for="country">Select a Type</label>
       </div>
       <div class="col-75">
       	<Select name="am_type" size="1" id="am_type">
-    <option selected value="0" disabled="disabled">Select a Asset Type</option>
-    <option value="Mobile">Mobile</option>
-    <option value="Thermal Printer">Thermal Printer</option>
-    <option value="Sensor"> Sensor</option>
-    <option value="Gateway">Gateway</option>   
-    <option value="Laptop">Laptop</option>
-    <option value="Boom Barrier">Boom Barrier</option>
-    </Select>
+		    <option selected value="0" disabled="disabled">Select a Asset Type</option>
+		    <option value="Mobile">Mobile</option>
+		    <option value="Thermal Printer">Thermal Printer</option>
+		    <option value="Sensor"> Sensor</option>
+		    <option value="Gateway">Gateway</option>   
+		    <option value="Laptop">Laptop</option>
+		    <option value="Boom Barrier">Boom Barrier</option>
+   		 </Select>
       
       </div>
 		</div>

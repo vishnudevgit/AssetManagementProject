@@ -202,7 +202,7 @@
 			<th>Maker</th>
 			<th>Model</th>
 			<th>Slno</th>
-			<th>Year of manufacture</th>
+			<th>Year</th>
 			<th>PurchaseDate</th>
 			<th>Warranty Years</th>
 			<th>Warranty From</th>
@@ -240,8 +240,8 @@
 </body>
 </html>
 <%
-		} // end of GET
-	if (request.getMethod().equalsIgnoreCase("POST")) {  //POST
+		} 
+	if (request.getMethod().equalsIgnoreCase("POST")) {  
 		%>
 		<jsp:useBean id="asset_master" class="com.ignite.beans.Asset_Master" scope="request"/>
 		<jsp:setProperty property="*" name="asset_master"/>
@@ -250,7 +250,7 @@
 		<%
 	}
 	}
-	else { // session not found
+	else { 
 		response.sendRedirect("Login.jsp");
 	}
 	%>

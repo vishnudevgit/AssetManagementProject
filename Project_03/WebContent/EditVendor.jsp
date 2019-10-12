@@ -148,7 +148,7 @@ if(request.getMethod().equalsIgnoreCase("get")){
     </div>
     
 		<input type="submit" value="Update">
-	<!-- 	<input type="reset" value="Cancel"> -->
+	<!-- 	 -->
 	</form>
 </div>
 </body>
